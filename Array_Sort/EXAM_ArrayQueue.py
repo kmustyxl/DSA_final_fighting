@@ -2,7 +2,7 @@ class ArrayQueue:
     '''
     定义两个指针，Start表示pop()的数据地址，End表示push()的地址，执行一次push，cur_size+1
     执行一次pop(),cur_size-1.
-    当Start触底时，重新置零，End同理
+    当Start触底时，重新置零，End同理。
     '''
     def __init__(self, size_arr):
         self.arr = [0 for i in range(size_arr)]

@@ -8,7 +8,7 @@ def MaxGap(arr):
         return 0
     distance = (max_num - min_num) / num_num
     bucket = [[0,None,None] for i in range(num_num + 1)] #三个变量分别存放布尔类型(0为空桶，1为非空桶)
-    for i in range(num_num):                      #第二个变量存放最小值，第三个变量存放最大值
+    for i in range(num_num):                      #第二个变量存放最小值，第三个变量存放最大值。
         index = int((arr[i] - min_num) / distance)
         bucket[index][0] = 1
         if bucket[index][1] is None:
