@@ -38,3 +38,6 @@ def heapify(arr, index, heapsize):   #index为当前变化的数字（变小了�
             swap(arr, index, lagest)   #否则，交换变化的数字和lagest，此时，index更新为lagest，继续往下判断
             index = lagest
             left = 2 * index + 1
+arr = [3,4,5,6,2,1]
+ans = heapsort(arr)
+print(ans)
