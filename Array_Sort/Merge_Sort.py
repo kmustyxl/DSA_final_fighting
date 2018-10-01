@@ -31,39 +31,3 @@ arr = [4,6,2,5,7,1]
 demo = merge_sort(arr, 0, len(arr)-1)
 print(demo)
 
-
-
-
-
-
-
-
-
-
-# def merge_sort(array): #O(N*logN)
-#     len_array = len(array)
-#     mid = int(len_array/ 2)
-#     if len(array)<=1:
-#         return array
-#     left = merge_sort(array[:mid])
-#     right = merge_sort(array[mid:])
-#     ans = merge(left, right)
-#     return ans
-#
-# def merge(left, right):
-#     len_array = int(len(left) + len(right))
-#     sort_array = []
-#     j = 0
-#     k = 0
-#     while j < len(left) and k < len(right):
-#         if left[j] <= right[k]:
-#             sort_array.append(left[j])
-#             j += 1
-#         else:
-#             sort_array.append(right[k])
-#             k += 1
-#     if j == len(left):
-#         sort_array.extend(right[k:])
-#     else:
-#         sort_array.extend(left[j:])
-#     return sort_array
