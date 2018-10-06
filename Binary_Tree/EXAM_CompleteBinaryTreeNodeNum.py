@@ -4,6 +4,7 @@ class Node:
         self.lchild = lchild
         self.rchild = rchild
 def CompleteBinaryTreeNodeNum(head):
+    # 时间复杂度 O((logN)^2)
     if head.val is None:
         return 0
     else:
