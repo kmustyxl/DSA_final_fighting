@@ -1,6 +1,6 @@
 def InsertSort(arr):
     '''
-    模拟洗牌动作，从右往左
+    模拟洗牌动作，从右往左 
     :param arr:
     :return:
     '''
