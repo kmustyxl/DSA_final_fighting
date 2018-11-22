@@ -12,3 +12,4 @@ def swap(data1, data2):
     data1 = data2
     data2 = temp
     return data1, data2
+
