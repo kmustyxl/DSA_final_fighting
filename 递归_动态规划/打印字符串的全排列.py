@@ -10,7 +10,7 @@ def Permutation(arr, begin, end):
         arr[num], arr[begin] = arr[begin], arr[num]
         Permutation(arr, begin+1, end)
         arr[num], arr[begin] = arr[begin], arr[num]
-arr = [1,2,3,4]
+arr = [1,2,3,4,5,6,7]
 count = 0
-Permutation(arr, 0, 4)
+Permutation(arr, 0, 7)
 print(count)
