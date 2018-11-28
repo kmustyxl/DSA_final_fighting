@@ -42,11 +42,11 @@ def merge(arr,l,mid,r):
         p1 += 1
     for i in range(len(help)):
         arr[l+i] = help[i]
-    return small_sum
+    return arr
 
 if __name__ == '__main__':
     arr = [1,5,3,7,2]
     small_sum = 0
     ans = little_small(arr,0,len(arr)-1)
-    print(ans)
+    print(small_sum)
 
