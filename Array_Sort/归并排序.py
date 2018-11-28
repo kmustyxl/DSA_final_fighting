@@ -6,6 +6,9 @@ def Merge_sort(arr,l,r):
     Merge_sort(arr,mid+1,r)
     return Merge(arr, l, mid, r)
 def Merge(arr, l, mid, r):
+    '''
+    arr数组，l->mid已经有序，mid->r已经有序，该函数实现整体有序；
+    '''
     help = []
     p1 = l
     p2 = mid + 1
@@ -23,7 +26,7 @@ def Merge(arr, l, mid, r):
         help.append(arr[p2])
         p2 += 1
     for i in range(len(help)): #help只是个辅助数组，需要将数组拷贝到arr数组并返回。
-        arr[l+i]  = help[i]
+        arr[l+i]  = help[i]    #因为排序范围从l开始，因此初始位置为l+i
     return arr
 arr = [1,3,4,3,2,1,9,6]
 ans = Merge_sort(arr, 0, len(arr)-1)
