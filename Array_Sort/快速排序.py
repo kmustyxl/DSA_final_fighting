@@ -1,35 +1,38 @@
 import random
-def QuickSort(arr,l,r):
-    if l == r:
+def quicksort(arr,l,r):
+    if arr is None or l==r:
         return
     if l < r:
-        random_index = l + int((r-l+1)*random.random())
-        swap(arr, l, random_index)
-        p = partition(arr, l, r)
-        QuickSort(arr, l, p[0])
-        QuickSort(arr, p[0]+1, r)
-    return arr
-def partition(arr, l, r):
-    less = l-1
+        random_seed = l + int((r-l)*random.random())
+        swap(arr,random_seed,r)
+        p = partition(arr,l,r)
+        quicksort(arr,l,p[0]-1)
+        quicksort(arr,p[1]+1,r)
+        return arr
+
+def partition(arr,l,r):
+    less = l - 1
     more = r
     while l < more:
-        if arr[l] < arr[r]:
-            swap(arr, less+1, l)
+        if arr[l] <arr[r]:
+            swap(arr,less+1,l)
             less += 1
             l += 1
         elif arr[l] == arr[r]:
             l += 1
         else:
-            swap(arr, l, more-1)
-            more -=1
-    swap(arr, more, r)
-    return [less+1, more-1]
+            swap(arr,l,more-1)
+            more -= 1
+    swap(arr,r,more)
+    return [less+1,more]
 
-def swap(arr, i, j):
+
+def swap(arr,i,j):
     temp = arr[i]
     arr[i] = arr[j]
     arr[j] = temp
-arr = [1,4,3,4,5,1,8,0,9]
-ans = QuickSort(arr, 0, len(arr)-1)
-print(ans)
 
+if __name__ == '__main__':
+    arr = [12,2,4,1,2,6,8,5,-2]
+    ans = quicksort(arr,0,len(arr)-1)
+    print(ans)

@@ -1,33 +1,38 @@
-def mergesort(arr,l,r):
-    if l==r:
+import random
+def quicksort(arr,l,r):
+    if arr is None or l==r:
         return
-    mid = l+int((r-l)/2)
-    left = mergesort(arr,l,mid)
-    right = mergesort(arr,mid+1,r)
-    return merge(arr,l,mid,r)
+    if l < r:
+        random_seed = l + int((r-l)*random.random())
+        swap(arr,random_seed,r)
+        p = partition(arr,l,r)
+        quicksort(arr,l,p[0]-1)
+        quicksort(arr,p[1]+1,r)
+        return arr
 
-def merge(arr,l,mid,r):
-    help_arr = []
-    p0 = l
-    p1 = mid + 1
-    while p0 <= mid and p1 <= r:
-        if arr[p0] < arr[p1]:
-            help_arr.append(arr[p0])
-            p0 += 1
+def partition(arr,l,r):
+    less = l - 1
+    more = r
+    while l < more:
+        if arr[l] <arr[r]:
+            swap(arr,less+1,l)
+            less += 1
+            l += 1
+        elif arr[l] == arr[r]:
+            l += 1
         else:
-            help_arr.append(arr[p1])
-            p1 += 1
-    while p0 <= mid:
-        help_arr.append(arr[p0])
-        p0 += 1
-    while p1 <= r:
-        help_arr.append(arr[p1])
-        p1 += 1
-    for i in range(len(help_arr)):
-        arr[l+i] = help_arr[i]
-    return arr
+            swap(arr,l,more-1)
+            more -= 1
+    swap(arr,r,more)
+    return [less+1,more]
 
-if __name__=='__main__':
-    arr = [3,4,5,2,1,7,8]
-    arr = mergesort(arr,0,len(arr)-1)
-    print(arr)
+
+def swap(arr,i,j):
+    temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+
+if __name__ == '__main__':
+    arr = [12,2,4,1,2,6,8,5,-2]
+    ans = quicksort(arr,0,len(arr)-1)
+    print(ans)
