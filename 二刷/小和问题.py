@@ -17,15 +17,14 @@ def little_small(arr,l,r):
     if l == r:
         return arr[l]
     mid = l + int((r-l)/2)
-    little_small(arr,l,mid)
-    little_small(arr,mid+1,r)
-    return merge(arr,l,mid,r)
+    return little_small(arr,l,mid) + little_small(arr,mid+1,r) + merge(arr,l,mid,r)
 
 def merge(arr,l,mid,r):
     global small_sum
     p0 = l
     p1 = mid + 1
     help = []
+    small_sum = 0
     while p0 <= mid and p1 <= r:
         if arr[p0] < arr[p1]:
             small_sum += arr[p0] * int(r-p1+1)
@@ -42,11 +41,10 @@ def merge(arr,l,mid,r):
         p1 += 1
     for i in range(len(help)):
         arr[l+i] = help[i]
-    return arr
+    return small_sum
 
 if __name__ == '__main__':
     arr = [1,5,3,7,2]
-    small_sum = 0
     ans = little_small(arr,0,len(arr)-1)
-    print(small_sum)
+    print(ans)
 
