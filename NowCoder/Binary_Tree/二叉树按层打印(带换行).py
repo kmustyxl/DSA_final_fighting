@@ -1,4 +1,4 @@
-from Binary_Tree import Define_Binary_Tree as BT
+from NowCoder.Binary_Tree import Define_Binary_Tree as BT
 class Node:
     def __init__(self,val=None,lchild=None,rchild=None):
         self.val = val
