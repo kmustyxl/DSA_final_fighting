@@ -1,0 +1,7 @@
+{
+    "python.terminal.launchArgs": [
+    
+    ],
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe",
+    "files.autoSave": "afterDelay"
+}
